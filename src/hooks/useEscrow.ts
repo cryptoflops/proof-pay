@@ -2,7 +2,7 @@
 
 import { useReadContract, useWriteContract, useWaitForTransactionReceipt, useAccount } from 'wagmi';
 import { parseUnits } from 'viem';
-import { ESCROW_ADDRESS, CUSD_ADDRESS, ProofPayEscrowABI, ERC20ABI, CELO_SEPOLIA_CHAIN_ID } from '@/contracts';
+import { ESCROW_ADDRESS, CUSD_ADDRESS, ProofPayEscrowABI, ERC20ABI, CELO_CHAIN_ID } from '@/contracts';
 
 // --- Read Hooks ---
 
@@ -12,7 +12,7 @@ export function useEscrowDetails(escrowId: bigint) {
     abi: ProofPayEscrowABI,
     functionName: 'escrows',
     args: [escrowId],
-    chainId: CELO_SEPOLIA_CHAIN_ID,
+    chainId: CELO_CHAIN_ID,
   });
 }
 
@@ -21,7 +21,7 @@ export function useEscrowCounter() {
     address: ESCROW_ADDRESS,
     abi: ProofPayEscrowABI,
     functionName: 'escrowCounter',
-    chainId: CELO_SEPOLIA_CHAIN_ID,
+    chainId: CELO_CHAIN_ID,
   });
 }
 
@@ -33,7 +33,7 @@ export function useCusdBalance() {
     abi: ERC20ABI,
     functionName: 'balanceOf',
     args: address ? [address] : undefined,
-    chainId: CELO_SEPOLIA_CHAIN_ID,
+    chainId: CELO_CHAIN_ID,
     query: { enabled: !!address },
   });
 }
@@ -46,7 +46,7 @@ export function useCusdAllowance() {
     abi: ERC20ABI,
     functionName: 'allowance',
     args: address ? [address, ESCROW_ADDRESS] : undefined,
-    chainId: CELO_SEPOLIA_CHAIN_ID,
+    chainId: CELO_CHAIN_ID,
     query: { enabled: !!address },
   });
 }
@@ -63,7 +63,7 @@ export function useApproveEscrow() {
       abi: ERC20ABI,
       functionName: 'approve',
       args: [ESCROW_ADDRESS, parseUnits(amount, 18)],
-      chainId: CELO_SEPOLIA_CHAIN_ID,
+      chainId: CELO_CHAIN_ID,
     });
   };
 
@@ -80,7 +80,7 @@ export function useCreateEscrow() {
       abi: ProofPayEscrowABI,
       functionName: 'createEscrow',
       args: [freelancer, parseUnits(amount, 18)],
-      chainId: CELO_SEPOLIA_CHAIN_ID,
+      chainId: CELO_CHAIN_ID,
     });
   };
 
@@ -97,7 +97,7 @@ export function useReleaseEscrow() {
       abi: ProofPayEscrowABI,
       functionName: 'releaseEscrow',
       args: [escrowId],
-      chainId: CELO_SEPOLIA_CHAIN_ID,
+      chainId: CELO_CHAIN_ID,
     });
   };
 
@@ -114,7 +114,7 @@ export function useDisputeEscrow() {
       abi: ProofPayEscrowABI,
       functionName: 'disputeEscrow',
       args: [escrowId],
-      chainId: CELO_SEPOLIA_CHAIN_ID,
+      chainId: CELO_CHAIN_ID,
     });
   };
 
@@ -131,7 +131,7 @@ export function useClaimRefund() {
       abi: ProofPayEscrowABI,
       functionName: 'claimRefund',
       args: [escrowId],
-      chainId: CELO_SEPOLIA_CHAIN_ID,
+      chainId: CELO_CHAIN_ID,
     });
   };
 
