@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Epilogue, Space_Grotesk } from 'next/font/google';
 import ClientWrapper from '@/components/ClientWrapper';
 import Link from 'next/link';
+import Image from 'next/image';
 import './globals.css';
 
 const epilogue = Epilogue({ subsets: ['latin'], variable: '--font-epilogue' });
@@ -25,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         
         <header className="fixed top-0 w-full z-50 flex justify-between items-center px-4 h-16 bg-[#052219]/80 backdrop-blur-xl border-b border-white/10 no-shadows">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-secondary-fixed">shield_lock</span>
+            <Image src="/logo.png" alt="ProofPay Logo" width={32} height={32} className="rounded-md object-contain" />
             <span className="text-xl font-black tracking-tighter text-secondary-fixed uppercase">ProofPay</span>
           </div>
           <nav className="hidden md:flex gap-6">

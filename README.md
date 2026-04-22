@@ -1,5 +1,9 @@
 # ProofPay
 
+<p align="center">
+  <img src="./public/logo.png" height="120" alt="ProofPay Logo" />
+</p>
+
 ProofPay is an escrow application for Celo MiniPay. It allows clients to lock funds in a smart contract and release them to service providers once a service is completed.
 
 ## Features
