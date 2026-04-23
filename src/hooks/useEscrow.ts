@@ -2,7 +2,7 @@
 
 import { useReadContract, useWriteContract, useWaitForTransactionReceipt, useAccount } from 'wagmi';
 import { parseUnits } from 'viem';
-import { ESCROW_ADDRESS, CUSD_ADDRESS, ProofPayEscrowABI, ERC20ABI, CELO_CHAIN_ID } from '@/contracts';
+import { ESCROW_ADDRESS, SUPPORTED_TOKEN, ProofPayEscrowABI, ERC20ABI, CELO_CHAIN_ID } from '@/contracts';
 
 // --- Read Hooks ---
 
@@ -29,7 +29,7 @@ export function useCusdBalance() {
   const { address } = useAccount();
 
   return useReadContract({
-    address: CUSD_ADDRESS,
+    address: SUPPORTED_TOKEN.address,
     abi: ERC20ABI,
     functionName: 'balanceOf',
     args: address ? [address] : undefined,
@@ -42,7 +42,7 @@ export function useCusdAllowance() {
   const { address } = useAccount();
 
   return useReadContract({
-    address: CUSD_ADDRESS,
+    address: SUPPORTED_TOKEN.address,
     abi: ERC20ABI,
     functionName: 'allowance',
     args: address ? [address, ESCROW_ADDRESS] : undefined,
@@ -59,7 +59,7 @@ export function useApproveEscrow() {
 
   const approve = (amount: string) => {
     writeContract({
-      address: CUSD_ADDRESS,
+      address: SUPPORTED_TOKEN.address,
       abi: ERC20ABI,
       functionName: 'approve',
       args: [ESCROW_ADDRESS, parseUnits(amount, 18)],
