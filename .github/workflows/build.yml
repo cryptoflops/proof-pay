@@ -12,11 +12,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '20'
           cache: npm
       - run: npm ci
-      - name: Build project
-        run: npm run build
-        env:
-          NEXT_PUBLIC_WC_PROJECT_ID: test_project_id
-      # Updated 2026-04-26T13:00:36.622Z
+      - run: npm run build
+      # Updated 2026-04-27T23:12:21.440Z
