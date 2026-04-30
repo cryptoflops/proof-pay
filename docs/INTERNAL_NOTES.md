@@ -6,3 +6,4 @@
 - Reviewed component tree performance, seems stable.
 - Pushing work-in-progress state before context switch.
 - Tested gas estimations on Celo Alfajores, looks good.
+- Pushing work-in-progress state before context switch.
