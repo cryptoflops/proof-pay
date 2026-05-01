@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-04-30
+## [Unreleased] - 2026-05-01
 
 ### Changed
-- Refactored wallet connection flow
-- Reduced bundle size by tree-shaking
+- Updated dependencies to latest stable
+- Cleaned up unused imports
 
 ### Fixed
-- Fixed edge case in balance display
+- Resolved race condition in wallet sync
