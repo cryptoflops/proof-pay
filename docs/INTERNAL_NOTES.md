@@ -9,3 +9,4 @@
 - Pushing work-in-progress state before context switch.
 - Looking into potential race conditions during state hydration.
 - Pushing work-in-progress state before context switch.
+- Refactored the wallet connection hooks for cleaner state.
