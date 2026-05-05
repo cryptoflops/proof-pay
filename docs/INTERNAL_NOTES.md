@@ -16,3 +16,4 @@
 - Pushing work-in-progress state before context switch.
 - Pushing work-in-progress state before context switch.
 - Reviewed component tree performance, seems stable.
+- Need to look into optimizing the context providers later.
