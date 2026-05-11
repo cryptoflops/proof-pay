@@ -19,3 +19,4 @@
 - Need to look into optimizing the context providers later.
 - Adjusting padding to align with design specs.
 - Looking into potential race conditions during state hydration.
+- Testing new layout constraints for edge cases.
