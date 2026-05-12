@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-05-11
+## [Unreleased] - 2026-05-12
 
 ### Changed
-- Enhanced mobile responsiveness
-- Added retry logic for failed transactions
+- Improved loading state indicators
+- Cleaned up unused imports
 
 ### Fixed
-- Corrected gas estimation for Celo L2
+- Resolved race condition in wallet sync
