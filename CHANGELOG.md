@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-05-12
+## [Unreleased] - 2026-05-13
 
 ### Changed
 - Improved loading state indicators
-- Cleaned up unused imports
+- Reduced bundle size by tree-shaking
 
 ### Fixed
-- Resolved race condition in wallet sync
+- Corrected gas estimation for Celo L2
