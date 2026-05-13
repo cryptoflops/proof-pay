@@ -23,3 +23,4 @@
 - Reviewed component tree performance, seems stable.
 - Pushing work-in-progress state before context switch.
 - Testing new layout constraints for edge cases.
+- Tested gas estimations on Celo Alfajores, looks good.
