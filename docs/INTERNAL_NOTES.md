@@ -26,3 +26,4 @@
 - Tested gas estimations on Celo Alfajores, looks good.
 - Reviewed component tree performance, seems stable.
 - Looking into potential race conditions during state hydration.
+- Need to look into optimizing the context providers later.
