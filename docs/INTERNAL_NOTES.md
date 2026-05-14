@@ -25,3 +25,4 @@
 - Testing new layout constraints for edge cases.
 - Tested gas estimations on Celo Alfajores, looks good.
 - Reviewed component tree performance, seems stable.
+- Looking into potential race conditions during state hydration.
