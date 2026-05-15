@@ -27,3 +27,4 @@
 - Reviewed component tree performance, seems stable.
 - Looking into potential race conditions during state hydration.
 - Need to look into optimizing the context providers later.
+- Investigated rendering jitter on mobile layout.
