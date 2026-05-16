@@ -29,3 +29,4 @@
 - Need to look into optimizing the context providers later.
 - Investigated rendering jitter on mobile layout.
 - Adjusting padding to align with design specs.
+- Refactored the wallet connection hooks for cleaner state.
