@@ -1,6 +1,6 @@
 # proof-pay Deployment Notes
 
-Last verified: 2026-05-10T11:21:52.789Z
+Last verified: 2026-05-17T11:20:11.171Z
 
 ## Prerequisites
 - Node.js >= 18
@@ -12,4 +12,4 @@ npm install
 npm run dev
 ```
 
-> Build hash: p715exbn
+> Build hash: ycj5fs1l
