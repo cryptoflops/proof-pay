@@ -3,6 +3,7 @@ import { Epilogue, Space_Grotesk } from 'next/font/google';
 import ClientWrapper from '@/components/ClientWrapper';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ShieldCheck } from 'lucide-react';
 import './globals.css';
 
 const epilogue = Epilogue({ subsets: ['latin'], variable: '--font-epilogue' });
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   title: 'ProofPay Landing Page',
   description: 'Trustless Payments, Proven Security.',
   other: {
-    'talentapp:project_verification': '2a8f74653e33a535639514d4b4b623692c63085536770b7a9688392ff64bd776eef2d6c868751f3b7f7bf9a5dcc3f2b5b4313d5acba0e40a2e049dd3a8e341e5',
+    'talentapp:project_verification': 'a44b60e03f561c1e74bcee03a9a91ac60b249c6889bd5707023b839e8e036e565c9afc9f58070cbc8edd3a9812994e3e4f43350ab24e1afd7d7612baaab0cd1f',
   },
 };
 
@@ -30,24 +31,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <span className="text-xl font-black tracking-tighter text-secondary-fixed uppercase">ProofPay</span>
           </div>
           <nav className="hidden md:flex gap-6">
-            <Link className="font-epilogue tracking-tight font-bold text-secondary-fixed hover:text-secondary transition-colors active:scale-95 transition-transform" href="#">Features</Link>
-            <Link className="font-epilogue tracking-tight font-bold text-white/60 hover:text-secondary-fixed transition-colors active:scale-95 transition-transform" href="#">Security</Link>
+            <Link className="font-epilogue tracking-tight font-bold text-secondary-fixed hover:text-secondary transition-colors active:scale-95 transition-transform" href="/#how-it-works">How It Works</Link>
+            <Link className="font-epilogue tracking-tight font-bold text-white/60 hover:text-secondary-fixed transition-colors active:scale-95 transition-transform" href="/#security">Security</Link>
           </nav>
-          <button className="bg-secondary-fixed text-on-secondary-fixed px-4 py-2 font-label-caps text-label-caps hover:bg-secondary transition-colors">Launch App</button>
+          <Link href="/app" className="bg-secondary-fixed text-on-secondary-fixed px-4 py-2 font-label-caps text-label-caps hover:bg-secondary transition-all active:scale-95 text-center flex items-center justify-center">Launch App</Link>
         </header>
 
         <ClientWrapper>{children}</ClientWrapper>
 
         <footer className="w-full py-12 px-6 flex flex-col items-center gap-6 bg-[#052219] border-t border-white/5 full-width mt-20 relative z-10">
           <div className="flex justify-center mb-2">
-            <span className="material-symbols-outlined text-secondary-fixed text-4xl">shield_lock</span>
+            <ShieldCheck className="text-secondary-fixed w-10 h-10" />
           </div>
           <nav className="flex gap-6">
-            <Link className="font-epilogue text-xs uppercase tracking-widest text-secondary-fixed hover:text-secondary-fixed transition-colors opacity-100" href="#">Security</Link>
-            <Link className="font-epilogue text-xs uppercase tracking-widest text-white/40 hover:text-secondary-fixed transition-colors opacity-100" href="#">Terms</Link>
-            <Link className="font-epilogue text-xs uppercase tracking-widest text-white/40 hover:text-secondary-fixed transition-colors opacity-100" href="#">Docs</Link>
+            <Link className="font-epilogue text-xs uppercase tracking-widest text-secondary-fixed hover:text-secondary-fixed transition-colors opacity-100 font-bold" href="/#security">Security</Link>
+            <a className="font-epilogue text-xs uppercase tracking-widest text-white/40 hover:text-secondary-fixed transition-colors opacity-100 font-bold" href="https://celoscan.io/address/0xc496A211dB0ef052663017aF2a3e14296F012faD" target="_blank" rel="noopener noreferrer">Verified Contract</a>
+            <a className="font-epilogue text-xs uppercase tracking-widest text-white/40 hover:text-secondary-fixed transition-colors opacity-100 font-bold" href="https://github.com/cryptoflops/proof-pay/blob/main/README.md" target="_blank" rel="noopener noreferrer">Docs</a>
           </nav>
-          <p className="font-epilogue text-xs uppercase tracking-widest text-white/40">© 2024 ProofPay. Secured by Celo.</p>
+          <p className="font-epilogue text-xs uppercase tracking-widest text-white/40 font-bold">© 2026 ProofPay. Secured by Celo.</p>
         </footer>
       </body>
     </html>

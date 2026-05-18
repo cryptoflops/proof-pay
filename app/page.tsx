@@ -1,143 +1,224 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import AppKitButton from '@/components/AppKitButton';
+import Link from 'next/link';
+import { Gavel, Shield, Wallet, ArrowRight, CheckCircle2, ShieldCheck, Zap, Sparkles, ExternalLink } from 'lucide-react';
 import { SUPPORTED_TOKEN } from '@/contracts';
-import { trackEvent } from '@/utils/analytics';
-import { useCreateEscrow, useEscrowDetails } from '@/hooks/useEscrow';
-import { useAccount } from 'wagmi';
 
-export default function Home() {
-  const { isConnected, address } = useAccount();
-  const { createEscrow, isPending: isCreating, isSuccess: isCreateSuccess } = useCreateEscrow();
-
-  const [recipient, setRecipient] = useState<string>('');
-  const [amount, setAmount] = useState<string>('');
-  const [escrowId, setEscrowId] = useState<string>('');
-
-  // Auto-fill from URL for "Share Link" feature
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      const reqId = params.get('request_id');
-      const reqAmount = params.get('amount');
-      if (reqId) setRecipient(reqId);
-      if (reqAmount) setAmount(reqAmount);
-    }
-  }, []);
-
-  const handleCreate = () => {
-    if (!recipient || !amount) return;
-    trackEvent('escrow_created', { amount, token: SUPPORTED_TOKEN.symbol });
-    createEscrow(recipient as `0x${string}`, amount);
-  };
-
-  const handleCopyLink = () => {
-    if (typeof window !== 'undefined' && isConnected) {
-      const url = `${window.location.origin}?request_id=${address}&amount=${amount}`;
-      navigator.clipboard.writeText(url);
-      trackEvent('escrow_link_copied');
-      alert('Payment link copied to clipboard!');
-    }
-  };
-
+export default function LandingHome() {
   return (
-    <main className="flex-grow pt-24 px-container-padding max-w-7xl mx-auto w-full relative">
-      <section className="py-12 md:py-20 flex flex-col items-center justify-between gap-12 relative z-10">
-        <div className="flex-1 w-full max-w-md relative reveal-item md:pl-0">
-          <div className="absolute -inset-4 bg-secondary-fixed/20 blur-3xl rounded-full z-0"></div>
-          <div className="glass-panel p-8 rounded-none relative z-10 border-t-secondary-fixed/50 flex flex-col gap-6">
-            <div className="flex justify-between items-start mb-2">
-              <span className="material-symbols-outlined text-4xl text-on-surface-variant">gavel</span>
-              <span className="bg-primary-container text-secondary-fixed px-3 py-1 font-label-caps text-label-caps border border-secondary-fixed/30 transform translate-x-4 -translate-y-4 shadow-[4px_4px_0px_0px_rgba(183,245,105,0.2)]">ESCROW</span>
-            </div>
+    <main className="flex-grow pt-20 overflow-x-hidden relative">
+      
+      {/* Background visual accents */}
+      <div className="absolute top-20 left-1/4 w-[600px] h-[600px] bg-secondary-fixed/5 blur-[160px] rounded-full -z-10 animate-pulse"></div>
+      <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-[#0c3c2e]/20 blur-[130px] rounded-full -z-10"></div>
+
+      {/* Hero Section */}
+      <section className="py-20 md:py-32 px-container-padding max-w-7xl mx-auto text-center relative z-10">
+        <div className="max-w-3xl mx-auto space-y-8 reveal-item">
+          
+          {/* Trust Badge */}
+          <div className="inline-flex items-center gap-2 bg-[#052219]/80 border border-secondary-fixed/30 px-4 py-1.5 rounded-full text-secondary-fixed text-xs font-label-caps uppercase tracking-widest mx-auto shadow-[0_4px_20px_rgba(183,245,105,0.1)]">
+            <Sparkles size={12} className="text-secondary-fixed shrink-0" />
+            <span>Built on Celo Network</span>
+          </div>
+
+          {/* Heading */}
+          <h1 className="font-display-xl text-4xl md:text-6xl text-on-background leading-[1.1] tracking-tight">
+            Trustless Payments, <br className="hidden md:inline" />
+            <span className="text-secondary-fixed font-black">Proven Security.</span>
+          </h1>
+
+          {/* Subheadline */}
+          <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+            The next-generation non-custodial escrow platform on Celo. Lock stablecoins like <span className="text-white font-bold">{SUPPORTED_TOKEN.symbol}</span> safely inside immutable smart contracts. Zero third-party risk.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+            <Link 
+              href="/app"
+              className="w-full sm:w-auto bg-secondary-fixed text-on-secondary-fixed px-8 py-4 font-label-caps text-label-caps hover:bg-secondary transition-all active:scale-[0.98] shadow-[0_12px_30px_rgba(183,245,105,0.15)] flex items-center justify-center gap-2 tracking-wider"
+            >
+              <span>Launch Application</span>
+              <ArrowRight size={16} />
+            </Link>
             
-            <h1 className="font-display-sm text-display-sm text-on-background leading-tight">
-              Secure <span className="text-secondary-fixed">Payment</span>
-            </h1>
-
-            {isCreateSuccess ? (
-              <div className="flex flex-col gap-4 py-8 items-center text-center">
-                <span className="material-symbols-outlined text-secondary-fixed text-6xl">check_circle</span>
-                <p className="font-headline-md text-secondary-fixed">Escrow Created!</p>
-                
-                {/* Timeline State */}
-                <div className="w-full flex justify-between items-center relative mt-6 before:absolute before:top-1/2 before:-translate-y-1/2 before:w-full before:h-1 before:bg-white/10 before:-z-10">
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="w-6 h-6 rounded-full bg-secondary-fixed shadow-[0_0_10px_rgba(183,245,105,0.5)]"></div>
-                    <span className="text-xs text-on-surface-variant font-label-caps uppercase">Created</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="w-6 h-6 rounded-full bg-white/20"></div>
-                    <span className="text-xs text-on-surface-variant font-label-caps uppercase">Funded</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="w-6 h-6 rounded-full bg-white/20"></div>
-                    <span className="text-xs text-on-surface-variant font-label-caps uppercase">Completed</span>
-                  </div>
-                </div>
-
-                <button onClick={() => window.location.reload()} className="mt-8 text-on-surface-variant underline text-sm hover:text-white">
-                  Create another
-                </button>
-              </div>
-            ) : (
-              <div className="space-y-6">
-                <div className="relative">
-                  <label className="font-label-caps text-label-caps text-on-surface-variant block mb-2">RECIPIENT ADDRESS</label>
-                  <input 
-                    className="w-full bg-transparent border-0 border-b border-white/20 text-on-background font-body-md px-0 py-2 focus:ring-0 focus:border-secondary-fixed transition-colors placeholder-white/20" 
-                    placeholder="0x..." 
-                    type="text"
-                    value={recipient}
-                    onChange={(e) => setRecipient(e.target.value)}
-                  />
-                </div>
-                <div className="relative">
-                  <label className="font-label-caps text-label-caps text-on-surface-variant block mb-2">AMOUNT ({SUPPORTED_TOKEN.symbol})</label>
-                  <input 
-                    className="w-full bg-transparent border-0 border-b border-white/20 text-on-background font-body-md px-0 py-2 focus:ring-0 focus:border-secondary-fixed transition-colors placeholder-white/20" 
-                    placeholder="0.00" 
-                    type="number"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                  />
-                </div>
-                
-                <div className="pt-4 space-y-4">
-                  {!isConnected ? (
-                     <div className="flex justify-center"><AppKitButton /></div>
-                  ) : (
-                    <>
-                      <button 
-                        onClick={handleCreate}
-                        disabled={isCreating || !recipient || !amount}
-                        className="w-full bg-secondary-fixed text-on-secondary-fixed py-4 font-label-caps text-label-caps hover:bg-secondary transition-colors disabled:opacity-50 flex justify-center items-center gap-2"
-                      >
-                        {isCreating ? <span className="material-symbols-outlined animate-spin">sync</span> : null}
-                        {isCreating ? 'Creating...' : 'Initialize Escrow'}
-                      </button>
-                      <button 
-                        onClick={handleCopyLink}
-                        className="w-full glass-panel py-3 font-label-caps text-label-caps hover:bg-white/5 transition-colors flex justify-center items-center gap-2"
-                      >
-                        <span className="material-symbols-outlined text-[18px]">link</span>
-                        Share Payment Request Link
-                      </button>
-                    </>
-                  )}
-                </div>
-              </div>
-            )}
+            <a 
+              href="https://celoscan.io/address/0xc496A211dB0ef052663017aF2a3e14296F012faD"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto border border-white/10 hover:border-white/20 text-on-surface-variant hover:text-white px-8 py-4 font-label-caps text-label-caps transition-all active:scale-[0.98] flex items-center justify-center gap-2 bg-white/5"
+            >
+              <span>View Smart Contract</span>
+              <ExternalLink size={14} className="opacity-60" />
+            </a>
           </div>
         </div>
       </section>
 
-      <section className="py-12 relative z-10 text-center max-w-2xl mx-auto space-y-4">
-        <h2 className="font-headline-md text-headline-md text-on-background mb-4">Non-Custodial Escrow</h2>
-        <p className="font-body-md text-body-md text-on-surface-variant">
-          Payments are securely held in the immutable ProofPay smart contract. We never hold your funds. Transparency through cryptography.
-        </p>
+      {/* Interactive Timeline Section (How it Works) */}
+      <section id="how-it-works" className="py-20 bg-[#052219]/30 border-y border-white/5 relative z-10 px-container-padding">
+        <div className="max-w-6xl mx-auto space-y-16">
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <h2 className="font-display-sm text-3xl font-black text-on-background">
+              The Escrow <span className="text-secondary-fixed">Lifecycle</span>
+            </h2>
+            <p className="text-sm text-on-surface-variant leading-relaxed">
+              How ProofPay securely protects both buyers and sellers in 3 simple, fully automated steps on-chain.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            {/* Timeline line overlay on desktop */}
+            <div className="hidden md:block absolute top-[68px] left-[15%] right-[15%] h-0.5 bg-white/10 -z-10"></div>
+
+            {/* Step 1 */}
+            <div className="glass-panel p-8 rounded-none border border-white/5 relative hover:border-secondary-fixed/30 transition-all group hover:-translate-y-1 duration-300">
+              <div className="w-14 h-14 rounded-full bg-primary-container border border-secondary-fixed/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(183,245,105,0.1)]">
+                <Wallet className="w-6 h-6 text-secondary-fixed" />
+              </div>
+              <div className="space-y-3">
+                <span className="text-[10px] text-secondary-fixed font-label-caps uppercase tracking-wider font-bold">Step 01</span>
+                <h3 className="font-headline-md text-xl text-on-background font-bold">Deposit & Lock</h3>
+                <p className="text-xs text-on-surface-variant leading-relaxed">
+                  The buyer deposits cUSD into the immutable ProofPay escrow contract. The funds are locked transparently on-chain.
+                </p>
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="glass-panel p-8 rounded-none border border-white/5 relative hover:border-secondary-fixed/30 transition-all group hover:-translate-y-1 duration-300">
+              <div className="w-14 h-14 rounded-full bg-primary-container border border-secondary-fixed/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(183,245,105,0.1)]">
+                <Gavel className="w-6 h-6 text-secondary-fixed" />
+              </div>
+              <div className="space-y-3">
+                <span className="text-[10px] text-secondary-fixed font-label-caps uppercase tracking-wider font-bold">Step 02</span>
+                <h3 className="font-headline-md text-xl text-on-background font-bold">Await Fulfilling</h3>
+                <p className="text-xs text-on-surface-variant leading-relaxed">
+                  The seller provides the goods, services, or completes the required work as agreed in the transaction terms.
+                </p>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="glass-panel p-8 rounded-none border border-white/5 relative hover:border-secondary-fixed/30 transition-all group hover:-translate-y-1 duration-300">
+              <div className="w-14 h-14 rounded-full bg-primary-container border border-secondary-fixed/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(183,245,105,0.1)]">
+                <CheckCircle2 className="w-6 h-6 text-secondary-fixed" />
+              </div>
+              <div className="space-y-3">
+                <span className="text-[10px] text-secondary-fixed font-label-caps uppercase tracking-wider font-bold">Step 03</span>
+                <h3 className="font-headline-md text-xl text-on-background font-bold">Safe Release</h3>
+                <p className="text-xs text-on-surface-variant leading-relaxed">
+                  Upon verification or validation of conditions, the escrow funds are automatically released directly to the seller.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Security & Trust Signals Section */}
+      <section id="security" className="py-24 px-container-padding max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Visual Trust Cards */}
+          <div className="space-y-6 relative">
+            <div className="absolute -inset-4 bg-secondary-fixed/5 blur-3xl rounded-full -z-10"></div>
+            
+            <div className="glass-panel p-6 rounded-none border border-white/5 flex gap-4 items-start">
+              <div className="bg-[#052219] p-3 rounded-none border border-secondary-fixed/20 shrink-0">
+                <ShieldCheck className="w-6 h-6 text-secondary-fixed" />
+              </div>
+              <div className="space-y-1">
+                <h4 className="text-sm font-bold text-white uppercase tracking-wider font-label-caps">Non-Custodial Escrow</h4>
+                <p className="text-xs text-on-surface-variant leading-relaxed">
+                  ProofPay does not control, manage, or hold custody of your digital assets. All transactions are handled purely by decentralized, immutable smart contract code.
+                </p>
+              </div>
+            </div>
+
+            <div className="glass-panel p-6 rounded-none border border-white/5 flex gap-4 items-start">
+              <div className="bg-[#052219] p-3 rounded-none border border-secondary-fixed/20 shrink-0">
+                <Zap className="w-6 h-6 text-secondary-fixed" />
+              </div>
+              <div className="space-y-1">
+                <h4 className="text-sm font-bold text-white uppercase tracking-wider font-label-caps">Ultra-Low Gas Fees</h4>
+                <p className="text-xs text-on-surface-variant leading-relaxed">
+                  Running on the high-speed Celo network means fees are fractions of a cent. Escrow operations will cost you less than a tenth of a penny.
+                </p>
+              </div>
+            </div>
+
+            <div className="glass-panel p-6 rounded-none border border-white/5 flex gap-4 items-start">
+              <div className="bg-[#052219] p-3 rounded-none border border-secondary-fixed/20 shrink-0">
+                <Gavel className="w-6 h-6 text-secondary-fixed" />
+              </div>
+              <div className="space-y-1">
+                <h4 className="text-sm font-bold text-white uppercase tracking-wider font-label-caps">0% Protocol Fees</h4>
+                <p className="text-xs text-on-surface-variant leading-relaxed">
+                  No hidden margins. No cut of your transactions. ProofPay is a utility tool designed exclusively to build trusted micro-payments on Celo.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Marketing Copy */}
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <span className="text-[10px] text-secondary-fixed font-label-caps uppercase tracking-widest font-bold">Security First</span>
+              <h2 className="font-display-sm text-3xl font-black text-on-background leading-tight">
+                Designed to Prevent <br />
+                <span className="text-secondary-fixed">Fraud and Disputes</span>
+              </h2>
+              <p className="text-sm text-on-surface-variant leading-relaxed">
+                By standardizing on Celo smart contracts, transaction flows are completely decentralized. Neither party can act in bad faith or run away with locked resources, providing peace of mind for freelancers, merchant checkouts, and marketplace payments.
+              </p>
+            </div>
+
+            <div className="space-y-4 pt-4 border-t border-white/10">
+              <h4 className="text-xs font-bold text-white uppercase tracking-wider font-label-caps">Verified Celo Deployment</h4>
+              <div className="bg-primary-container/80 border border-white/10 p-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="space-y-1">
+                  <p className="text-[10px] text-on-surface-variant uppercase tracking-wider">Contract Address</p>
+                  <p className="font-mono text-xs text-secondary-fixed break-all select-all font-bold">
+                    0xc496A211dB0ef052663017aF2a3e14296F012faD
+                  </p>
+                </div>
+                <a 
+                  href="https://celoscan.io/address/0xc496A211dB0ef052663017aF2a3e14296F012faD" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/5 hover:bg-white/10 text-white p-2.5 rounded-none border border-white/10 text-center shrink-0 flex items-center justify-center gap-1.5 transition-all active:scale-[0.98]"
+                >
+                  <span className="text-[10px] uppercase font-label-caps font-bold tracking-wider">Celoscan</span>
+                  <ExternalLink size={12} className="opacity-60" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-20 bg-gradient-to-t from-[#031410] to-[#101415] border-t border-white/5 relative z-10 text-center px-container-padding">
+        <div className="max-w-2xl mx-auto space-y-6">
+          <h2 className="font-display-sm text-3xl font-black text-on-background">
+            Ready to secure your <span className="text-secondary-fixed">payments?</span>
+          </h2>
+          <p className="text-xs text-on-surface-variant max-w-lg mx-auto leading-relaxed">
+            Connect your wallet to lock secure escrow transactions in seconds, or share pre-filled request links with clients.
+          </p>
+          <div className="pt-4">
+            <Link 
+              href="/app"
+              className="inline-flex bg-secondary-fixed text-on-secondary-fixed px-8 py-4 font-label-caps text-label-caps hover:bg-secondary transition-all active:scale-[0.98] shadow-[0_12px_30px_rgba(183,245,105,0.15)] items-center gap-2 tracking-wider"
+            >
+              <span>Launch Escrow dApp</span>
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
       </section>
 
     </main>
