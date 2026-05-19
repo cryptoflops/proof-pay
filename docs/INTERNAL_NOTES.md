@@ -33,3 +33,4 @@
 - Cleaned up some dead code in the utility helpers.
 - Investigated rendering jitter on mobile layout when switching between MiniPay and desktop contexts.
 - Checked backward compatibility with older Celo RPC responses. The L2 migration changed some receipt fields.
+- Reviewed WagmiProvider config. The QueryClient should probably have a longer gcTime for balance queries.
