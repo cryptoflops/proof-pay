@@ -31,3 +31,4 @@
 - Adjusting padding to align with design specs.
 - Refactored the wallet connection hooks for cleaner state.
 - Cleaned up some dead code in the utility helpers.
+- Investigated rendering jitter on mobile layout when switching between MiniPay and desktop contexts.
