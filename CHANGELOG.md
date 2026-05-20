@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-05-13
+## [Unreleased] - 2026-05-20
 
 ### Changed
-- Improved loading state indicators
+- Improved error handling in contract interactions
 - Reduced bundle size by tree-shaking
 
 ### Fixed
-- Corrected gas estimation for Celo L2
+- Fixed decimal formatting for small amounts
