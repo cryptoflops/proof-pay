@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-05-20
+## [Unreleased] - 2026-05-21
 
 ### Changed
-- Improved error handling in contract interactions
-- Reduced bundle size by tree-shaking
+- Updated dependencies to latest stable
+- Added retry logic for failed transactions
 
 ### Fixed
-- Fixed decimal formatting for small amounts
+- Corrected gas estimation for Celo L2
