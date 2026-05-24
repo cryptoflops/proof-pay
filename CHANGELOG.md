@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-05-21
+## [Unreleased] - 2026-05-24
 
 ### Changed
-- Updated dependencies to latest stable
-- Added retry logic for failed transactions
+- Improved loading state indicators
+- Cleaned up unused imports
 
 ### Fixed
-- Corrected gas estimation for Celo L2
+- Fixed decimal formatting for small amounts
