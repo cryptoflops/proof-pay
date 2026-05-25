@@ -3,8 +3,8 @@
 ## [Unreleased] - 2026-05-25
 
 ### Changed
-- Enhanced mobile responsiveness
+- Improved error handling in contract interactions
 - Cleaned up unused imports
 
 ### Fixed
-- Fixed edge case in balance display
+- Fixed decimal formatting for small amounts
