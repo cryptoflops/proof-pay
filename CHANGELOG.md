@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-05-24
+## [Unreleased] - 2026-05-25
 
 ### Changed
-- Improved loading state indicators
+- Enhanced mobile responsiveness
 - Cleaned up unused imports
 
 ### Fixed
-- Fixed decimal formatting for small amounts
+- Fixed edge case in balance display
