@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-05-27
+## [Unreleased] - 2026-05-28
 
 ### Changed
 - Updated dependencies to latest stable
-- Reduced bundle size by tree-shaking
+- Added retry logic for failed transactions
 
 ### Fixed
 - Fixed edge case in balance display
