@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-05-28
+## [Unreleased] - 2026-05-30
 
 ### Changed
-- Updated dependencies to latest stable
+- Enhanced mobile responsiveness
 - Added retry logic for failed transactions
 
 ### Fixed
-- Fixed edge case in balance display
+- Fixed decimal formatting for small amounts
