@@ -38,3 +38,4 @@
 - Loyalty point accumulation is gas-efficient since we only write one uint256 per visit.
 - Reviewed gas price oracle behavior on Celo. Since the Gingerbread upgrade, EIP-1559 is the default.
 - Reviewed WagmiProvider config. The QueryClient should probably have a longer gcTime for balance queries.
+- Investigated rendering jitter on mobile layout when switching between MiniPay and desktop contexts.
