@@ -37,3 +37,4 @@
 - The AppKit modal does not render in MiniPay WebView which is expected. Auto-connect via injected handles it.
 - Loyalty point accumulation is gas-efficient since we only write one uint256 per visit.
 - Reviewed gas price oracle behavior on Celo. Since the Gingerbread upgrade, EIP-1559 is the default.
+- Reviewed WagmiProvider config. The QueryClient should probably have a longer gcTime for balance queries.
