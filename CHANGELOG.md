@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-06-03
+## [Unreleased] - 2026-06-05
 
 ### Changed
-- Improved loading state indicators
-- Added input validation for amounts
+- Enhanced mobile responsiveness
+- Cleaned up unused imports
 
 ### Fixed
-- Corrected gas estimation for Celo L2
+- Fixed edge case in balance display
