@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-06-05
+## [Unreleased] - 2026-06-06
 
 ### Changed
-- Enhanced mobile responsiveness
-- Cleaned up unused imports
+- Improved loading state indicators
+- Added retry logic for failed transactions
 
 ### Fixed
-- Fixed edge case in balance display
+- Resolved race condition in wallet sync
