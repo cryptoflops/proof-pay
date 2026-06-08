@@ -41,3 +41,4 @@
 - Investigated rendering jitter on mobile layout when switching between MiniPay and desktop contexts.
 - Investigated rendering jitter on mobile layout when switching between MiniPay and desktop contexts.
 - Tested the NetworkEnforcer component with chain switching. Smooth on MiniPay, slight delay on MetaMask.
+- Contract reads via useReadContract work fine on Celo, but multicall batching is not supported on all RPCs.
