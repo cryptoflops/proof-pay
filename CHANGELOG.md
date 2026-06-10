@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-06-06
+## [Unreleased] - 2026-06-10
 
 ### Changed
-- Optimized RPC batch requests
-- Added retry logic for failed transactions
+- Updated dependencies to latest stable
+- Cleaned up unused imports
 
 ### Fixed
-- Resolved race condition in wallet sync
+- Fixed decimal formatting for small amounts
