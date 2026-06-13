@@ -44,3 +44,4 @@
 - Contract reads via useReadContract work fine on Celo, but multicall batching is not supported on all RPCs.
 - Tested the NetworkEnforcer component with chain switching. Smooth on MiniPay, slight delay on MetaMask.
 - Reviewed WagmiProvider config. The QueryClient should probably have a longer gcTime for balance queries.
+- Reviewed gas price oracle behavior on Celo. Since the Gingerbread upgrade, EIP-1559 is the default.
