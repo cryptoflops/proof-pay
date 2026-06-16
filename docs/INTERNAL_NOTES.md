@@ -46,3 +46,4 @@
 - Reviewed WagmiProvider config. The QueryClient should probably have a longer gcTime for balance queries.
 - Reviewed gas price oracle behavior on Celo. Since the Gingerbread upgrade, EIP-1559 is the default.
 - Framer Motion animations perform well on low-end Android devices commonly used with MiniPay.
+- Loyalty point accumulation is gas-efficient since we only write one uint256 per visit.
