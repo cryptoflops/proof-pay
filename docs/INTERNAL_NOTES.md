@@ -47,3 +47,4 @@
 - Reviewed gas price oracle behavior on Celo. Since the Gingerbread upgrade, EIP-1559 is the default.
 - Framer Motion animations perform well on low-end Android devices commonly used with MiniPay.
 - Loyalty point accumulation is gas-efficient since we only write one uint256 per visit.
+- Investigated rendering jitter on mobile layout when switching between MiniPay and desktop contexts.
