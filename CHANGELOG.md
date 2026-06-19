@@ -3,8 +3,8 @@
 ## [Unreleased] - 2026-06-19
 
 ### Changed
-- Improved loading state indicators
-- Added retry logic for failed transactions
+- Improved error handling in contract interactions
+- Added input validation for amounts
 
 ### Fixed
 - Resolved race condition in wallet sync
