@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-06-22
+## [Unreleased] - 2026-06-23
 
 ### Changed
 - Enhanced mobile responsiveness
-- Added retry logic for failed transactions
+- Cleaned up unused imports
 
 ### Fixed
-- Corrected gas estimation for Celo L2
+- Fixed edge case in balance display
