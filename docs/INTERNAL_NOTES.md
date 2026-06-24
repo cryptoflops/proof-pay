@@ -49,3 +49,4 @@
 - Loyalty point accumulation is gas-efficient since we only write one uint256 per visit.
 - Investigated rendering jitter on mobile layout when switching between MiniPay and desktop contexts.
 - The escrow contract refund timeout (7 days) seems appropriate for freelance gig markets.
+- Noticed the useBalance hook refetches on every block. Consider adding staleTime to reduce RPC load.
