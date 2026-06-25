@@ -4,7 +4,7 @@
 
 ### Changed
 - Improved loading state indicators
-- Cleaned up unused imports
+- Added retry logic for failed transactions
 
 ### Fixed
-- Corrected gas estimation for Celo L2
+- Resolved race condition in wallet sync
