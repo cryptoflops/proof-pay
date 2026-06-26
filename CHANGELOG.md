@@ -1,9 +1,9 @@
 # Changelog
 
-## [Unreleased] - 2026-06-25
+## [Unreleased] - 2026-06-26
 
 ### Changed
-- Improved loading state indicators
+- Enhanced mobile responsiveness
 - Added retry logic for failed transactions
 
 ### Fixed
