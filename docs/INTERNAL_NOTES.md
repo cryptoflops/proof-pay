@@ -51,3 +51,4 @@
 - The escrow contract refund timeout (7 days) seems appropriate for freelance gig markets.
 - Noticed the useBalance hook refetches on every block. Consider adding staleTime to reduce RPC load.
 - The AppKit modal does not render in MiniPay WebView which is expected. Auto-connect via injected handles it.
+- Reviewed WagmiProvider config. The QueryClient should probably have a longer gcTime for balance queries.
