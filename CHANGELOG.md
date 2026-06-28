@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-06-27
+## [Unreleased] - 2026-06-28
 
 ### Changed
-- Improved loading state indicators
-- Added retry logic for failed transactions
+- Improved error handling in contract interactions
+- Reduced bundle size by tree-shaking
 
 ### Fixed
 - Resolved race condition in wallet sync
