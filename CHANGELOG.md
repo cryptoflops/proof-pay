@@ -3,8 +3,8 @@
 ## [Unreleased] - 2026-06-29
 
 ### Changed
-- Improved loading state indicators
-- Cleaned up unused imports
+- Optimized RPC batch requests
+- Added retry logic for failed transactions
 
 ### Fixed
 - Resolved race condition in wallet sync
