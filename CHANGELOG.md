@@ -7,4 +7,4 @@
 - Added retry logic for failed transactions
 
 ### Fixed
-- Fixed edge case in balance display
+- Corrected gas estimation for Celo L2
