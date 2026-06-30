@@ -3,7 +3,7 @@
 ## [Unreleased] - 2026-06-30
 
 ### Changed
-- Improved error handling in contract interactions
+- Updated dependencies to latest stable
 - Added retry logic for failed transactions
 
 ### Fixed
