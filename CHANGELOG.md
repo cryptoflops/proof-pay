@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-07-02
+## [Unreleased] - 2026-07-05
 
 ### Changed
-- Refactored wallet connection flow
-- Reduced bundle size by tree-shaking
+- Enhanced mobile responsiveness
+- Added input validation for amounts
 
 ### Fixed
-- Fixed decimal formatting for small amounts
+- Fixed edge case in balance display
