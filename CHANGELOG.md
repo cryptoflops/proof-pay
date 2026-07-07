@@ -1,10 +1,10 @@
 # Changelog
 
-## [Unreleased] - 2026-07-05
+## [Unreleased] - 2026-07-07
 
 ### Changed
-- Enhanced mobile responsiveness
-- Added input validation for amounts
+- Updated dependencies to latest stable
+- Cleaned up unused imports
 
 ### Fixed
-- Fixed edge case in balance display
+- Fixed decimal formatting for small amounts
