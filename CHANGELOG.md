@@ -1,10 +1,9 @@
 # Changelog
 
-## [Unreleased] - 2026-07-09
+## [Unreleased] - 2026-07-25
 
 ### Changed
-- Optimized RPC batch requests
-- Added input validation for amounts
+- Improved error handling in contract interactions
 
 ### Fixed
-- Fixed edge case in balance display
+- Fixed decimal formatting for cUSD amounts
