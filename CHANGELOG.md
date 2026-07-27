@@ -1,9 +1,9 @@
 # Changelog
 
-## [Unreleased] - 2026-07-26
+## [Unreleased] - 2026-07-27
 
 ### Changed
-- Updated dependencies to latest stable versions
+- Improved error handling in contract interactions
 
 ### Fixed
-- Fixed edge case in balance display for micro amounts
+- Corrected gas estimation for Celo L2 calls
