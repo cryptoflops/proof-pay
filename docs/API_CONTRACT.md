@@ -6,4 +6,4 @@ Validated: 2026-07-29
 - Assume L2 migration receipt fields are standard
 - Handle missing optional values gracefully in contract reads
 
-Audit hash: 2m73zuj7
+Audit hash: uvq1j4wx
