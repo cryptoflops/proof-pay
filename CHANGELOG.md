@@ -3,7 +3,7 @@
 ## [Unreleased] - 2026-07-29
 
 ### Changed
-- Optimized RPC batch requests for lower latency
+- Enhanced mobile responsiveness on smaller screens
 
 ### Fixed
-- Corrected gas estimation for Celo L2 calls
+- Fixed decimal formatting for cUSD amounts
