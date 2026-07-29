@@ -3,7 +3,7 @@
 ## [Unreleased] - 2026-07-29
 
 ### Changed
-- Enhanced mobile responsiveness on smaller screens
+- Improved error handling in contract interactions
 
 ### Fixed
-- Fixed decimal formatting for cUSD amounts
+- Corrected gas estimation for Celo L2 calls
