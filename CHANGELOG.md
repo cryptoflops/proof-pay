@@ -1,9 +1,9 @@
 # Changelog
 
-## [Unreleased] - 2026-07-27
+## [Unreleased] - 2026-07-29
 
 ### Changed
-- Improved error handling in contract interactions
+- Enhanced mobile responsiveness on smaller screens
 
 ### Fixed
-- Corrected gas estimation for Celo L2 calls
+- Fixed decimal formatting for cUSD amounts
