@@ -1,6 +1,6 @@
 # proof-pay Environment Guide
 
-Generated: 2026-07-31T11:21:21.364Z
+Generated: 2026-07-31T23:32:51.662Z
 
 ## Requirements
 - Node.js >= 18
@@ -10,4 +10,4 @@ Generated: 2026-07-31T11:21:21.364Z
 ## Validation
 Ensure `.env` matches `.env.example` before deployment.
 
-Build: j9jn8ucg
+Build: kcgvlqj8
