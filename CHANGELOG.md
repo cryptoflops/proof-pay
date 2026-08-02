@@ -1,9 +1,9 @@
 # Changelog
 
-## [Unreleased] - 2026-07-31
+## [Unreleased] - 2026-08-02
 
 ### Changed
-- Refactored wallet connection flow for MiniPay
+- Enhanced mobile responsiveness on smaller screens
 
 ### Fixed
-- Fixed decimal formatting for cUSD amounts
+- Resolved race condition in wallet state sync
