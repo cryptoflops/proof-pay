@@ -3,7 +3,7 @@
 ## [Unreleased] - 2026-08-03
 
 ### Changed
-- Optimized RPC batch requests for lower latency
+- Improved error handling in contract interactions
 
 ### Fixed
-- Resolved race condition in wallet state sync
+- Fixed edge case in balance display for micro amounts
